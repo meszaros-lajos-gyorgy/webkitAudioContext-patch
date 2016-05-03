@@ -1,3 +1,8 @@
+/*
+ WebkitAudioContext-patch v1.0.0
+ https://github.com/meszaros-lajos-gyorgy/webkitAudioContext-patch
+ License: MIT
+*/
 (function(){
 	'use strict';
 	
