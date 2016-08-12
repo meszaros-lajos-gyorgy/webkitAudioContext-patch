@@ -26,6 +26,14 @@ The lib corrects this for `GainNode`, `OscillatorNode` and `PeriodicWave` nodes.
 
 This is based on mohayonao's **pseudo-audio-param** code, credits should go to him (link can be found in the list of resources)
 
+Since AudioParam is not aware of the context it is in, we must bind it to get the correct value at a certain time. To do this, call
+
+```javascript
+var ctx = new AudioContext();
+var gain = ctx.createGain();
+gain.gain._bindContext(ctx);
+```
+
 ## Links / Resources:
 
 * https://github.com/cwilso/webkitAudioContext-MonkeyPatch
