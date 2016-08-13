@@ -6,7 +6,7 @@ A transparent, polyfill-like code, which upgrades the old webkit implementation 
 
 ### polyfill.js
 
-Includes a polyfill to `Array.from()` method, which is defined in ES6. `Array.from()` is needed for `get-value-at-time.js`
+Includes a polyfill to `Array.from()` method, which is defined in ES6. `Array.from()` is needed for `value-fix.js`
 
 ### webkit-audio-context-patch.js
 
