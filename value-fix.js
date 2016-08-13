@@ -1,3 +1,8 @@
+/*
+ Fix for AudioParam.value | WebkitAudioContext-patch v1.2.0
+ https://github.com/meszaros-lajos-gyorgy/webkitAudioContext-patch
+ License: MIT
+*/
 (function(){
 	'use strict';
 	
@@ -96,7 +101,7 @@
 		var oldSetValueAtTime = AudioParam.prototype.setValueAtTime;
 		AudioParam.prototype.setValueAtTime = function(value, time){
 			var args = Array.from(arguments);
-			if(this._ctx === null){
+			if(this._ctx !== null){
 				this._insertEvent({
 					type: 'setValueAtTime',
 					time: time,
@@ -110,7 +115,7 @@
 		var oldLinearRampToValueAtTime = AudioParam.prototype.linearRampToValueAtTime;
 		AudioParam.prototype.linearRampToValueAtTime = function(value, time){
 			var args = Array.from(arguments);
-			if(this._ctx === null){
+			if(this._ctx !== null){
 				this._insertEvent({
 					type: 'linearRampToValueAtTime',
 					time: time,
@@ -124,7 +129,7 @@
 		var oldExponentialRampToValueAtTime = AudioParam.prototype.exponentialRampToValueAtTime;
 		AudioParam.prototype.exponentialRampToValueAtTime = function(value, time){
 			var args = Array.from(arguments);
-			if(this._ctx === null){
+			if(this._ctx !== null){
 				this._insertEvent({
 					type: 'exponentialRampToValueAtTime',
 					time: time,
@@ -138,7 +143,7 @@
 		var oldSetTargetAtTime = AudioParam.prototype.setTargetAtTime;
 		AudioParam.prototype.setTargetAtTime = function(value, time, timeConstant){
 			var args = Array.from(arguments);
-			if(this._ctx === null){
+			if(this._ctx !== null){
 				this._insertEvent({
 					type: 'setTargetAtTime',
 					time: time,
@@ -153,7 +158,7 @@
 		var oldSetValueCurveAtTime = AudioParam.prototype.setValueCurveAtTime;
 		AudioParam.prototype.setValueCurveAtTime = function(curve, time, duration){
 			var args = Array.from(arguments);
-			if(this._ctx === null){
+			if(this._ctx !== null){
 				this._insertEvent({
 					type: 'setValueCurveAtTime',
 					time: time,
@@ -167,7 +172,7 @@
 
 		var oldCancelScheduledValues = AudioParam.prototype.cancelScheduledValues;
 		AudioParam.prototype.cancelScheduledValues = function(time){
-			if(this._ctx === null){
+			if(this._ctx !== null){
 				this._events = this._events.filter(function(eventItem){
 					return eventItem.time < time;
 				});
@@ -253,28 +258,26 @@
 		};
 		
 		var descriptor = Object.getOwnPropertyDescriptor(AudioParam.prototype, 'value');
-
+		
 		var oldSet = descriptor.set;
 		descriptor.set = function(value){
-			this.setValueAtTime(value, 0);
-			return oldSet.apply(this, Array.from(arguments));
+			console.log('set');
+			if(this._ctx === null){
+				oldSet.apply(this, Array.from(arguments));
+			}else{
+				this.setValueAtTime(value, this._ctx.currentTime);
+			}
 		};
-
+		
 		var oldGet = descriptor.get;
-		descriptor.get = function(value){
+		descriptor.get = function(){
 			return (
 				this._ctx === null
 				? oldGet.apply(this, Array.from(arguments))
-				: this.getValueAtTime(value, this._ctx.currentTime)
+				: this._getValueAtTime(this._ctx.currentTime)
 			);
 		};
-
-		Object.defineProperty(AudioParam.prototype, 'value', descriptor);
 		
-		AudioParam.prototype._bindContext = function(ctx){
-			this._ctx = ctx;
-		};
-	}else{
-		AudioParam.prototype._bindContext = function(){};
+		Object.defineProperty(AudioParam.prototype, 'value', descriptor);
 	}
 })();

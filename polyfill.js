@@ -1,3 +1,8 @@
+/*
+ Polyfill for Array.from() | WebkitAudioContext-patch v1.2.0
+ https://github.com/meszaros-lajos-gyorgy/webkitAudioContext-patch
+ License: MIT
+*/
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from#Polyfill
 // Production steps of ECMA-262, Edition 6, 22.1.2.1
 // Reference: https://people.mozilla.org/~jorendorff/es6-draft.html#sec-array.from
