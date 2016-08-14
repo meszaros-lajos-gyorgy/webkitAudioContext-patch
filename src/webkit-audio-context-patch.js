@@ -1,5 +1,5 @@
 /*
- WebkitAudioContext-patch v1.2.0
+ WebkitAudioContext-patch v1.2.1
  https://github.com/meszaros-lajos-gyorgy/webkitAudioContext-patch
  License: MIT
 */

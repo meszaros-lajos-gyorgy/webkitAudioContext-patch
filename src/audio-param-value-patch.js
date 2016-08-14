@@ -1,5 +1,5 @@
 /*
- Fix for AudioParam.value | WebkitAudioContext-patch v1.2.0
+ Fix for AudioParam.value | WebkitAudioContext-patch v1.2.1
  https://github.com/meszaros-lajos-gyorgy/webkitAudioContext-patch
  License: MIT
 */
