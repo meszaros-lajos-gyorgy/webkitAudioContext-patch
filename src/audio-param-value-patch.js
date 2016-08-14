@@ -257,6 +257,8 @@
 			return value;
 		};
 		
+		// -------------------
+		
 		var descriptor = Object.getOwnPropertyDescriptor(AudioParam.prototype, 'value');
 		
 		var oldSet = descriptor.set;
@@ -279,5 +281,21 @@
 		};
 		
 		Object.defineProperty(AudioParam.prototype, 'value', descriptor);
+		
+		// -------------------
+		
+		var oldCreateGain = AudioContext.prototype.createGain;
+		AudioContext.prototype.createGain = function(){
+			var gain = oldCreateGain.apply(this, Array.from(arguments));
+			gain.gain._ctx = this;
+			return gain;
+		};
+		
+		var oldCreateOscillator = AudioContext.prototype.createOscillator;
+		AudioContext.prototype.createOscillator = function(){
+			var oscillator = oldCreateOscillator.apply(this, Array.from(arguments));
+			oscillator.frequency._ctx = this;
+			return oscillator;
+		};
 	}
 })();

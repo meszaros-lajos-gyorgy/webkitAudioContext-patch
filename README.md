@@ -25,18 +25,7 @@ This is needed for Firefox as a substitute to `AudioParam.value` getter, since i
 
 **This is based on mohayonao's pseudo-audio-param code, credits should go to him (link can be found in the list of resources)**
 
-Since AudioParam is not aware of the context it is in, we must bind it to get the correct value at a certain time.
-To do this, assign the audio context to the audio param's `_ctx` property before making any adjustment to it's value.
-
-```javascript
-var ctx = new AudioContext();
-var gain = ctx.createGain();
-gain.gain._ctx = ctx;
-
-console.log(gain.gain.value); // shows 1
-gain.gain.value = 0.8;
-console.log(gain.gain.value); // shows 0.8
-```
+Currently it is only supporting `OscillatorNode's frequency` property and `GainNode's gain` property, but drop a message for me and I will add more support.
 
 ## Links / Resources:
 
