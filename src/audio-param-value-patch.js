@@ -1,6 +1,7 @@
 /*
  Fix for AudioParam.value | WebkitAudioContext-patch v1.2.1
  https://github.com/meszaros-lajos-gyorgy/webkitAudioContext-patch
+ Original Source: https://github.com/mohayonao/pseudo-audio-param
  License: MIT
 */
 (function(){

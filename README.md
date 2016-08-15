@@ -23,7 +23,7 @@ Fixes the following from the old API:
 
 This is needed for Firefox as a substitute to `AudioParam.value` getter, since it is always returns the defaultValue (https://bugzilla.mozilla.org/show_bug.cgi?id=893020)
 
-**This is based on mohayonao's pseudo-audio-param code, credits should go to him (link can be found in the list of resources)**
+**This is based on mohayonao's pseudo-audio-param code, credits should go to him (https://github.com/mohayonao/pseudo-audio-param)**
 
 Currently it is only supporting `OscillatorNode's frequency` property and `GainNode's gain` property, but drop a message for me and I will add more support.
 
