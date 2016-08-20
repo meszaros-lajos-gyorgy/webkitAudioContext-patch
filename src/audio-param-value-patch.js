@@ -1,5 +1,5 @@
 /*
- Fix for AudioParam.value | WebkitAudioContext-patch v1.2.1
+ Fix for AudioParam.value | WebkitAudioContext-patch
  https://github.com/meszaros-lajos-gyorgy/webkitAudioContext-patch
  License: MIT
 */
@@ -295,6 +295,7 @@
 		AudioContext.prototype.createOscillator = function(){
 			var oscillator = oldCreateOscillator.apply(this, Array.from(arguments));
 			oscillator.frequency._ctx = this;
+			oscillator.detune._ctx = this;
 			return oscillator;
 		};
 	}

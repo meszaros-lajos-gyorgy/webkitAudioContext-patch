@@ -25,7 +25,16 @@ This is needed for Firefox as a substitute to `AudioParam.value` getter, since i
 
 **This is based on mohayonao's pseudo-audio-param code, credits should go to him (link can be found in the list of resources)**
 
-Currently it is only supporting `OscillatorNode's frequency` property and `GainNode's gain` property, but drop a message for me and I will add more support.
+The following parameters are patched, but drop a message for me and I will add more:
+
+**OscillatorNode**
+
+	* frequency
+	* detune
+
+**GainNode**
+	
+	* gain
 
 ## Links / Resources:
 

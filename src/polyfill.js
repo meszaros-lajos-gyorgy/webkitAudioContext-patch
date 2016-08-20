@@ -1,5 +1,5 @@
 /*
- Polyfill for Array.from() | WebkitAudioContext-patch v1.2.1
+ Polyfill for Array.from() | WebkitAudioContext-patch
  https://github.com/meszaros-lajos-gyorgy/webkitAudioContext-patch
  License: MIT
 */
