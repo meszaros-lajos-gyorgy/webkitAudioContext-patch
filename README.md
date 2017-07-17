@@ -9,7 +9,10 @@ A transparent, polyfill-like code, which upgrades the old webkit implementation 
 
 ## Files
 
-All the necessary JS files can be found prebuilt under the `dist/` folder in 2 versions: minified _(.min.js)_ with sourcemap _(.min.js.map)_ and unminified _(.js)_.
+All the necessary JS files can be found prebuilt under the `dist/` folder in 2 versions:
+
+ * minified _(.min.js)_ with sourcemap _(.min.js.map)_
+ * unminified _(.js)_.
 
 ## Contents of the js files and the fixes in them
 
