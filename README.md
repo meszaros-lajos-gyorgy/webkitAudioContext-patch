@@ -7,6 +7,10 @@ A transparent, polyfill-like code, which upgrades the old webkit implementation 
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
+## Files
+
+All the necessary JS files can be found prebuilt under the `dist/` folder in 2 versions: minified _(.min.js)_ with sourcemap _(.min.js.map)_ and unminified _(.js)_.
+
 ## Contents of the js files and the fixes in them
 
 ### polyfill.js
