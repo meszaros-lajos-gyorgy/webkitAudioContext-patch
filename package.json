@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "build": "rollup -c",
-    "dist:clean": "rimraf dist || true",
+    "dist:clean": "rimraf dist/**/* || mkdir dist",
     "dist:stage": "git add dist --force",
     "test": "npm run lint",
     "stage-after-lint": "git add src",

@@ -1,18 +1,23 @@
 import uglify from 'rollup-plugin-uglify'
 import buble from 'rollup-plugin-buble'
-import fs from 'fs'
+
+const {
+  name,
+  author,
+  license
+} = require('./package.json')
+
+const lPadZero = num => (num < 10 ? '0' : '') + num
 
 const getDate = () => {
   const d = new Date()
   const year = d.getFullYear()
-  const month = (d.getMonth() + 1 < 10 ? '0' : '') + (d.getMonth() + 1)
-  const day = (d.getDate() < 10 ? '0' : '') + d.getDate()
+  const month = lPadZero(d.getMonth() + 1)
+  const day = lPadZero(d.getDate())
   return `${year}-${month}-${day}`
 }
 
-const config = JSON.parse(fs.readFileSync('package.json'))
-
-const banner = `// ${config.name} - created by ${config.author} - ${config.license} licence - last built on ${getDate()}`
+const banner = `// ${name} - created by ${author} - ${license} licence - last built on ${getDate()}`
 
 export default [{
   entry: 'src/webkit-audio-context-patch.js',

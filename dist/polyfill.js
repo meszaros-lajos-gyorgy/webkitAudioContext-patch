@@ -1,4 +1,4 @@
-// webkitaudiocontext-patch - created by Lajos Meszaros <m_lajos@hotmail.com> - MIT licence - last built on 2017-07-17
+// webkitaudiocontext-patch - created by Lajos Meszaros <m_lajos@hotmail.com> - MIT licence - last built on 2017-08-03
 /* eslint-disable */
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from#Polyfill

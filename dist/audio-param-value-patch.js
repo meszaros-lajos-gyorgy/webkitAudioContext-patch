@@ -1,4 +1,4 @@
-// webkitaudiocontext-patch - created by Lajos Meszaros <m_lajos@hotmail.com> - MIT licence - last built on 2017-07-17
+// webkitaudiocontext-patch - created by Lajos Meszaros <m_lajos@hotmail.com> - MIT licence - last built on 2017-08-03
 /* global AudioParam, AudioContext */
 
 function getLinearRampToValueAtTime (t, v0, v1, t0, t1) {

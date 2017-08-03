@@ -1,4 +1,4 @@
-// webkitaudiocontext-patch - created by Lajos Meszaros <m_lajos@hotmail.com> - MIT licence - last built on 2017-07-17
+// webkitaudiocontext-patch - created by Lajos Meszaros <m_lajos@hotmail.com> - MIT licence - last built on 2017-08-03
 /* global OscillatorNode */
 var firefoxVersion = false;
 try {
